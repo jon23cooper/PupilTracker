@@ -1,0 +1,123 @@
+<!--
+  Html Template: menu
+
+  File: menu.html
+
+  Helpers:
+
+    subjects - list of subject objects
+    subjects._id - name of the subject
+
+    yearGroup - list of NCYears objects
+    yearGroup._id - the NC year
+
+    classes - list of class name objects
+    classes._id - the name of the class
+
+  Ui: User Interface
+
+    DateTimePickers:
+
+      #datetimepicker - allows the user to set the date for the class register
+
+    Selects:
+
+      #session - allows the user to select the session the class is in
+
+      #subject - allows the user to select the subject of the classes
+
+      #yeargroup - allows the user to select the NCYear for the class
+
+      #classname - allows the user to select the name of the classname
+
+    Buttons:
+
+      #registerBtn - sends the user to the <register> page
+
+
+-->
+
+<template name="menu">
+    <div class="container">
+        <div class="row">
+            <h1>Extra-curricular Registers</h1>
+        </div> <!-- end row -->
+    </div> <!-- end container -->
+    <div class="form-group">
+        <div class="container">
+            <div class="row">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="datetimepicker">Date</label>
+
+                        <div class="input-group datetimepicker" id="datetimepicker">
+                            <input class="set-due-date form-control" type="text"/>
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                    </div> <!-- form-group -->
+                    <div class="form-group">
+                        <label for="session">Session</label>
+                        <select class="c-select" id="session">
+                            <option value="reg">Reg</option>
+                            <option value="lunch">Lunch</option>
+                            <option value="pm">After School</option>
+                        </select>
+                    </div> <!-- end form-group -->
+                </form> <!-- end form-inline -->
+            </div> <!-- end row -->
+        </div> <!-- end container -->
+    </div> <!-- end form-group -->
+    <div class="form-group">
+        <div class="container">
+            <div class="row">
+                <div class="form-inline">
+                    <!-- Get Subject -->
+                    <div class="form-group">
+                        <label for="subject">Choose Subject:
+                            <select class="c-select" id="subject">
+                                <option selected>All Subjects</option>
+                                {{#each subjects}}
+                                    <option value={{_id}}>{{_id}}</option>
+                                {{/each }}
+                            </select>
+                        </label>
+                    </div> <!-- end form-group -->
+                    <!-- Get Year group -->
+                    <div class="form-group">
+                        <label for="yeargroup">Choose Year Group:
+                            <select class="c-select" id="yeargroup">
+                                <option selected>All Years</option>
+                                {{#each yearGroup}}
+                                    <option value={{_id}}>{{_id}}</option>
+                                {{/each }}
+                            </select>
+                        </label>
+                    </div> <!-- end form-group -->
+                    <!-- Get Class -->
+                    <div class="form-group">
+                        <label for="classname">Choose Class:
+                            <select class="c-select" id="classname">
+                                <option selected>All Classes</option>
+                                {{#each classes}}
+                                    <option value={{_id}}>{{_id}}</option>
+                                {{/each}}
+                            </select>
+                        </label>
+                    </div> <!-- end form-group -->
+                </div> <!-- end form-inline -->
+            </div> <!-- end row -->
+        </div> <!-- end container -->
+    </div> <!-- form-group -->
+    <!-- submit -->
+    <div class="container">
+
+        <div class="row">
+            <div class="form-group">
+                <button class="btn btn-primary pull-right" id="registerBtn"> Get Register</button>
+            </div>
+        </div>
+
+    </div>
+
+
+</template>

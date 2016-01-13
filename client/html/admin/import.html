@@ -1,0 +1,37 @@
+<!--
+
+  Html Template: import
+
+  File: import.html (/client/admin/html)
+
+  Allows the user to import pupil-subject documents from a csv file
+
+  Helpers:
+
+    progress.value - the percentage of files that have been imported
+
+-->
+
+<template name="import">
+  <!-- file input -->
+  <div class="container">
+    <div class="row">
+      <input type="file" id="fileImport"/>
+    </div>
+  </div>
+
+  <div class="container">
+    <p></p>
+    <div class="row">
+      <!-- progress bar -->
+      <div class="progress">
+        <div class = "progress-bar" role="progressbar" aria-valuemin="0"
+          aria-valuemax={{progress.max}} aria.valuenow={{progress.value}} style="width: {{progress.value}}">
+          {{progress.value}}
+          <span class="sr-only">{{progress.value}}  Complete</span>
+        </div> <!-- end progress-bar -->
+      </div> <!-- end progress -->
+    </div> <!-- end row -->
+  </div> <!-- end container -->
+
+</template>

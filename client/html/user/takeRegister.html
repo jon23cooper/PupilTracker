@@ -1,0 +1,61 @@
+
+<!--
+  Html Template: takeRegister
+
+  Allows user to take a register
+
+  File: takeRegister.html (/Client/html/)
+
+  Helpers:
+
+  register - an extra-curric document
+  register.date - the register date
+  register.session - the register session
+  register.yearGrp - the NCYear group of the class
+  register.subject - the subject name of the class
+  register.className - the name of the class
+  register.marks - an array of marks documents
+  register.marks.StudentName - the name of the pupil
+  register.marks.present - the present mark for the pupil
+
+  UI: User Interface
+
+  Checkboxes:
+    checkbox - one for each student, when clicked toggles present attribute for current pupil
+
+-->
+
+<template name="takeRegister">
+    {{#if Template.subscriptionsReady}}
+    <div class="container">
+        <h3>Date: {{register.date}} Session: {{register.session}}</h3>
+        <h3>Year Group: {{register.yearGrp}} Subject: {{register.subject}}  Class: {{register.className}}</h3>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 .col-sm-8">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th id="name">Name</th>
+                      <th class="middle" id="date">{{register.date}}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {{#each register.marks}}
+                      <tr>
+                        <td>{{StudentName}}</td>
+                        <td class="middle">
+                            <input type="checkbox" value="" checked={{present}} class="register">
+                        </td>
+                      </tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {{else}}
+        <p>loading ...</p>
+    {{/if}}
+</template>
